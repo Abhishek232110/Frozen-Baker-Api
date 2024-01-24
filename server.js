@@ -51,6 +51,6 @@ app.get("/api/get/image", async (req, res) => {
   res.send(result);
   console.log(result);
 });
-const port = 3007;
+const port = 3001;
 
 app.listen(port, () => console.log(`server is running on ${port}`));

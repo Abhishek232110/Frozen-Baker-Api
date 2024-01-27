@@ -1,16 +1,9 @@
 const express = require("express");
 const cors = require("cors");
-const cloudinary = require("./src/utils/cloudinary.js");
-const mongoose = require("mongoose");
-const cakeSchema = require("./src/model/cake.js");
-
-// const router = require("./multer.js");
-
-// connect
-mongoose.connect("mongodb://localhost:27017/Frozen-Baker", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const user = require("./src/baker-Apis/userLogin.js");
+const uploadImage = require("./src/baker-Apis/image-upload-Api.js");
+const getImage = require("./src/baker-Apis/image-get-Api.js");
+const getUsers = require("./src/baker-Apis/getUser.js");
 
 const app = express();
 app.use(
@@ -24,6 +17,7 @@ app.use(
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
+<<<<<<< Updated upstream
 app.post("/api/upload/image", async (req, res) => {
   try {
     const fileStr = req.body.data;
@@ -52,5 +46,12 @@ app.get("/api/get/image", async (req, res) => {
   console.log(result);
 });
 const port = 3001;
+=======
+app.use(user);
+app.use(uploadImage);
+app.use(getImage);
+app.use(getUsers);
+const port = process.env.PORT || 3001;
+>>>>>>> Stashed changes
 
 app.listen(port, () => console.log(`server is running on ${port}`));

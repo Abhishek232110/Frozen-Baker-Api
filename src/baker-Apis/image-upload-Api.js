@@ -15,6 +15,11 @@ imageUpload.post("/api/upload/image", async (req, res) => {
       name: req.body.name,
       price: req.body.price,
       imageUrl: imageUrl,
+      caketype: req.body.caketype,
+      flavour: req.body.flavour,
+      shape: req.body.shape,
+      size: req.body.size,
+      weight: req.body.weight,
     });
     await newCake.save();
     console.log(newCake);

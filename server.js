@@ -5,6 +5,8 @@ const uploadImage = require("./src/baker-Apis/image-upload-Api.js");
 const getImage = require("./src/baker-Apis/image-get-Api.js");
 const getUsers = require("./src/baker-Apis/getUser.js");
 const DelivaryDetails = require("./src/baker-Apis/delivaryApi.js");
+const loginUser = require("./src/baker-Apis/userLogin.js");
+const createUser = require("./src/baker-Apis/createUserApi.js");
 
 const app = express();
 app.use(
@@ -21,9 +23,11 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }));
 //upload Apis
 app.use(DelivaryDetails);
 app.use(uploadImage);
+app.use(loginUser);
+app.use(createUser);
 
 // get Apis
-app.use(user);
+
 app.use(getImage);
 app.use(getUsers);
 

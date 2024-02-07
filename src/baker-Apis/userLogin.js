@@ -1,13 +1,28 @@
 const express = require("express");
 require("../config/cake");
 const userSchema = require("../model/user.js");
+const jwtToken = require("jsonwebtoken");
+const jwtKey = "userSchema";
+const loginUser = express();
 
-const user = express();
-
-user.post("/api/user/save", async (req, res) => {
-  const data = new userSchema(req.body);
-  const result = await data.save(req.body);
-  res.send(result);
+loginUser.post("/api/user/login", async (req, res) => {
+  if (req.body.email && req.body.password) {
+    let data = await userSchema.findOne(req.body).select("-password");
+    {
+      data
+        ? jwtToken.sign(
+            { data },
+            jwtKey,
+            { expiresIn: "10h" },
+            (err, token) => {
+              res.send({ data, auth: token });
+            }
+          )
+        : res.send("email or password not match");
+    }
+  } else {
+    res.send("user not found");
+  }
 });
 
-module.exports = user;
+module.exports = loginUser;

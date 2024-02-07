@@ -22,11 +22,11 @@ imageUpload.post("/api/upload/image", async (req, res) => {
       weight: req.body.weight,
     });
     await newCake.save();
-    console.log(newCake);
+    // console.log(newCake);
     res.status(200).json({ mess: "done" });
     // console.log(fileStr);
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.status(500).json({ mess: "failed" });
   }
 });

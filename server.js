@@ -10,6 +10,9 @@ const createUser = require("./src/baker-Apis/createUserApi.js");
 const UploadIcecream = require("./src/baker-Apis/icecreams/uploadIceApi.js");
 const UploadChocolate = require("./src/baker-Apis/chocolate/uploadChocoApi.js");
 const UploadPastry = require("./src/baker-Apis/pastry/uploadPastryApi.js");
+const getPastryApi = require("./src/baker-Apis/pastry/getPastryApi.js");
+const getChocolateApi = require("./src/baker-Apis/chocolate/getChocolateApi.js");
+const getIcecreamApi = require("./src/baker-Apis/icecreams/getIceApi.js");
 
 const app = express();
 app.use(
@@ -36,6 +39,9 @@ app.use(UploadPastry);
 
 app.use(getImage);
 app.use(getUsers);
+app.use(getPastryApi);
+app.use(getChocolateApi);
+app.use(getIcecreamApi);
 
 const port = process.env.PORT || 3001;
 

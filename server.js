@@ -7,6 +7,9 @@ const getUsers = require("./src/baker-Apis/getUser.js");
 const DelivaryDetails = require("./src/baker-Apis/delivaryApi.js");
 const loginUser = require("./src/baker-Apis/userLogin.js");
 const createUser = require("./src/baker-Apis/createUserApi.js");
+const UploadIcecream = require("./src/baker-Apis/icecreams/uploadIceApi.js");
+const UploadChocolate = require("./src/baker-Apis/chocolate/uploadChocoApi.js");
+const UploadPastry = require("./src/baker-Apis/pastry/uploadPastryApi.js");
 
 const app = express();
 app.use(
@@ -25,6 +28,9 @@ app.use(DelivaryDetails);
 app.use(uploadImage);
 app.use(loginUser);
 app.use(createUser);
+app.use(UploadIcecream);
+app.use(UploadChocolate);
+app.use(UploadPastry);
 
 // get Apis
 

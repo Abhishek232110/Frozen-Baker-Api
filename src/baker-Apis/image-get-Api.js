@@ -8,8 +8,20 @@ uploadImage.get("/api/get/image", async (req, res) => {
   // console.log(result);
 });
 
+uploadImage.get("/api/get/chocolate", async (req, res) => {
+  const query = { flavour: "Chocolate" };
+  const data = await cakeSchema.find(query);
+  res.send(data);
+});
+
+uploadImage.get("/api/get/butterscotch", async (req, res) => {
+  const query = { flavour: "Butterscotch" };
+  const data = await cakeSchema.find(query);
+  res.send(data);
+});
+
 uploadImage.get("/get", async (req, res) => {
-  const query = { price: 213 };
+  const query = { flavour: "Chocolate" };
   const data = await cakeSchema.find(query);
   res.send(data);
 });

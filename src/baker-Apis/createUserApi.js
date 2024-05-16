@@ -14,5 +14,4 @@ createUser.post("/api/user/register", async (req, res) => {
     res.send({ data, auth: token });
   });
 });
-
 module.exports = createUser;

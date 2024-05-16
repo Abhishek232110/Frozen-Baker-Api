@@ -5,7 +5,6 @@ const getChocolateApi = express();
 getChocolateApi.get("/api/get/chocolate", async (req, res) => {
   const result = await chocolateSchema.find();
   res.send(result);
-  // console.log(result);
 });
 
 module.exports = getChocolateApi;

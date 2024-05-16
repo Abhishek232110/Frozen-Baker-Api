@@ -9,6 +9,12 @@ const DelivarySchema = new mongoose.Schema({
   message: String,
   radio: String,
   radio: String,
+  name: String,
+  email: String,
+  number: Number,
+  pincode: String,
+  city: String,
+  address: String,
 });
 
 const cakeSchema = mongoose.model("delivary", DelivarySchema);
